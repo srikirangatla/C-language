@@ -1,27 +1,27 @@
+/*Check if a number is a power of 2 using bitwise operators.*/
 #include <stdio.h>
-#include <stdbool.h>
 
-static bool isPowerOf2(int num){
-    if(num <= 0)
-        return false;
-    // A power of 2 has exactly one bit set, so n & (n - 1) should be 0
+int isPowerOfTwo(int num) {
+    if (num <= 0) {
+        return 0; // Negative numbers and zero are not powers of 2
+    }
     return (num & (num - 1)) == 0;
 }
 
-int main (void) {
-    int number;
-    printf ("Enter any number\r\n");
-    scanf ("%d", &number);
-    if (isPowerOf2(number))
-        printf("power of 2\r\n");
-    else
-        printf("not power of 2\r\n");
-
+int main() {
+    int num = 16; // 16 is a power of 2 (binary: 10000)
+    if (isPowerOfTwo(num)) {
+        printf("%d is a power of 2.\n", num);
+    } else {
+        printf("%d is not a power of 2.\n", num);
+    }
+    
+    num = 18; // 18 is not a power of 2 (binary: 10010)
+    if (isPowerOfTwo(num)) {
+        printf("%d is a power of 2.\n", num);
+    } else {
+        printf("%d is not a power of 2.\n", num);
+    }
+    
     return 0;
 }
-/*
-output:
-Enter any number
-16
-power of 2
-*/
